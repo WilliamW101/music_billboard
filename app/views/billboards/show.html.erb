@@ -1,0 +1,10 @@
+<h1> <%= @billboard.genre %> Chart </h1>
+<hr />
+
+<div>
+  <% if @billboard.description %>
+    <p>Description: <%= @billboard.description %> </p>
+  <% end %>
+</div>
+
+<%= link_to "#{@billboard.genre} Chart",billboard_songs_path(@billboard) %>

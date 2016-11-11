@@ -1,0 +1,19 @@
+<% if @billboard.errors.any? %>
+  <h5> <%= pluralize(@billboard.erros.count, 'Error', 'Errors') %> Create Billboard </h5>
+  <ul>
+    <% @billboard.errors.full_messages.each do |message| %>
+      <li> <%= message %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @billboard do |f| %>
+  <%= f.label :genre %>
+  <%= f.text_field :genre, required: true %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <br />
+
+  <%= f.submit %>
+<% end %>

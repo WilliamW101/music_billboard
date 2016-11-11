@@ -1,0 +1,16 @@
+<h1> <%= @billboard.genre %> Songs </h1>
+
+<% if @songs.any? %>
+  <% if @songs.each do |song| %>
+    <div>
+      <%= link_to song.title, song_artists_path() %>
+      <%= link_to 'Edit', edit_billboard_song_path(@billboard, song) %>
+      <%= link_to 'Delete', billboard_song_path(@billboard, song), method: :delete, data: { confirm: 'Delete This?' } %>
+    </div>
+  <% end %>
+  <% else %>
+    <h4> No Songs Found, Please Add One </h4>
+  <% end %>
+  <% end %>
+
+  <%= link_to 'Add A Song', new_billboard_song_path %>

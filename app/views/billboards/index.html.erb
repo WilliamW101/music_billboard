@@ -1,0 +1,16 @@
+<h1>Billboard Charts</h1>
+</hr>
+
+<% if @billboards.any? %>
+  <% @billboards.each do |billboard| %>
+    <div>
+      <strong><%= link_to billboard.genre, billboard_path(billboard) %></strong> -
+      <%= link_to 'Edit', edit_billboard_path(billboard) %> -
+      <%= link_to 'Delete', billboard_path(billboard), method: :delete, data: {confirm: 'Delete This?'} %>
+    </div>
+  <% end %>
+<% else %>
+  <h4> No Chart Found, Please Create One </h4>
+<% end %>
+
+<%= link_to 'Add Billboard', new_billboard_path %>

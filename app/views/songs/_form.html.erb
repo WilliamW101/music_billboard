@@ -1,0 +1,25 @@
+<% if @song.errors.any? %>
+  <h5> <%= pluralize(@song.erros.count, 'Error', 'Errors') %> Create Song </h5>
+  <ul>
+    <% @songs.errors.full_messages.each do |song| %>
+      <li> <%= message %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @song do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, required: true %>
+
+  <%= f.label :album %>
+  <%= f.text_field :album %>
+  <br />
+  <%= f.label :length %>
+  <%= f.text_field :length %>
+
+  <%= f.label :rating %>
+  <%= f.number_field :rating, required: true %>
+  <br />
+
+  <%= f.submit %>
+<% end %>
